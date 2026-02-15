@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Bienvenue sur EduManager{% endblock %}
+{% block content %}
+<div class="bg-light p-5 rounded-lg mb-5 shadow-sm">
+    <div class="row align-items-center">
+        <div class="col-md-7">
+            <h1 class="display-4 fw-bold text-primary">EduManager</h1>
+            <p class="lead">La solution complète pour la gestion académique de votre établissement.</p>
+            <hr class="my-4">
+            <p>Simplifiez le suivi des étudiants, la saisie des notes et la génération des bulletins en quelques clics.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a class="btn btn-primary btn-lg px-4 me-md-2" href="{{ url_for('auth.login') }}" role="button">Se Connecter</a>
+                <a class="btn btn-outline-secondary btn-lg px-4" href="#features" role="button">En savoir plus</a>
+            </div>
+        </div>
+        <div class="col-md-5 d-none d-md-block">
+            <img src="https://img.freepik.com/free-vector/education-technology-concept-illustration_114360-1035.jpg" alt="Education Tech" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</div>
+
+<div id="features" class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Nos Fonctionnalités Clés</h2>
+        <p class="text-muted">Conçu pour répondre aux besoins de tous les acteurs de l'éducation.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                            <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM8 0c.662 0 1.77.249 2.813.525a61.11 61.11 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.751 7.3-2.33 9.35a11.573 11.573 0 0 1-2.512 2.528c-.39.285-.708.482-.944.594-.122.058-.226.1-.301.123l-.014.004-.002.001-.001.001-.001.001h-.002a.55.55 0 0 1-.153 0h-.002l-.001-.001-.001-.001-.002-.001-.014-.004c-.075-.023-.179-.065-.301-.123-.236-.112-.554-.31-.944-.594a11.57 11.57 0 0 1-2.512-2.528c-1.579-2.05-2.903-5.153-2.33-9.35a1.248 1.248 0 0 1 1.003-1.184c1.012-.306 2.125-.615 2.772-.815C6.23 0.249 7.338 0 8 0z"/>
+                            <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
+                        </svg>
+                    </div>
+                    <h5 class="card-title fw-bold">Gestion Multi-rôles</h5>
+                    <p class="card-text text-muted">Espaces dédiés pour les Administrateurs, Enseignants et Étudiants avec des permissions sécurisées.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3 text-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                            <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                            <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+                        </svg>
+                    </div>
+                    <h5 class="card-title fw-bold">Calcul Automatique</h5>
+                    <p class="card-text text-muted">Calcul instantané des moyennes générales et par matière, ainsi que la validation des crédits ECTS.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3 text-warning">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
+                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                            <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.192.12.399.127.608.009.239-.01.49-.051.746-.074.474-.216.899-.387 1.281.253.589.565 1.138.928 1.621a10.412 10.412 0 0 1 1.923.667c.367.193.608.409.746.611.146.217.187.442.121.65a.503.503 0 0 1-.253.344c-.224.126-.446.129-.655.101a.891.891 0 0 1-.506-.232c-.153-.141-.313-.356-.477-.617a5.959 5.959 0 0 0-1.131-.107 19.445 19.445 0 0 0-3.54 1.153 2.126 2.126 0 0 1-.59.215zM7.56 4.85a.307.307 0 0 0-.03.063c-.012.032-.015.072-.011.115.004.043.014.095.036.146.046.107.126.236.25.41.003-.154.026-.304.067-.456.047-.178.059-.285.058-.335a.252.252 0 0 0-.006-.028c0-.001.006-.004-.007-.005a.03.03 0 0 0-.005-.005.052.052 0 0 0-.05.01c-.067.053-.102.124-.113.189zm-.286 5.122c.302.01.854.015 1.447.107.368.056.683.106.944.16.173.035.31.073.408.11a.473.473 0 0 1 .118.07.087.087 0 0 1 .007.007c0 .002.006.012-.013.028a.156.156 0 0 1-.047.025 2.11 2.11 0 0 1-.56.17c-.103.013-.243.01-.393-.037a.624.624 0 0 1-.219-.11.577.577 0 0 1-.129-.143c-.176-.283-.315-.611-.421-.92zm-1.354 1.102c.006.012.014.024.022.036a.341.341 0 0 0 .121.11c.126.07.232.092.307.037a.162.162 0 0 0 .041-.048c.01-.017.02-.043.03-.075a2.125 2.125 0 0 0 .059-.26c-.102.034-.202.074-.3.121a.541.541 0 0 0-.189.162.457.457 0 0 0-.091.117zm.78-2.934c-.287.323-.539.71-.75 1.112-.17.325-.312.66-.432.99.556-.242 1.091-.444 1.597-.607.459-.148.883-.262 1.259-.34a5.312 5.312 0 0 0-.523-.775 4.468 4.468 0 0 0-.635-.554c-.161-.112-.33-.21-.516-.226z"/>
+                        </svg>
+                    </div>
+                    <h5 class="card-title fw-bold">Bulletins PDF</h5>
+                    <p class="card-text text-muted">Générez et téléchargez des bulletins de notes professionnels au format PDF en un seul clic.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-primary text-white py-5 shadow-sm">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h3 class="fw-bold">Prêt à transformer votre gestion scolaire ?</h3>
+                <p class="mb-0">Rejoignez EduManager dès aujourd'hui et optimisez votre temps.</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-light btn-lg fw-bold">Démarrer Maintenant</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="container py-4 mt-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md text-center text-md-start">
+            <small class="d-block mb-3 text-muted">&copy; 2026 EduManager. Tous droits réservés.</small>
+        </div>
+    </div>
+</footer>
+{% endblock %}
