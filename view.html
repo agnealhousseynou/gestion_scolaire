@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %}Bulletin de {{ etudiant.user.nom }}{% endblock %} {% block content %}
+Bulletin de Notes
+Matricule: {{ etudiant.matricule }}
+Nom : {{ etudiant.user.nom }}
+
+Prénom : {{ etudiant.user.prenom }}
+
+Classe : {{ etudiant.classe.nom }}
+
+Filière : {{ etudiant.classe.filiere.nom }} ({{ etudiant.classe.filiere.niveau }})
+
+{% for m in matieres %} {% set note_val = "N/A" %} {% set valid = False %} {% for n in notes %} {% if n.matiere_id == m.id %} {% set note_val = n.valeur %} {% if n.valeur >= 10 %} {% set valid = True %} {% endif %} {% endif %} {% endfor %} {% endfor %}
+Matière	Coefficient	Crédits	Note / 20	Statut
+{{ m.nom }}	{{ m.coefficient }}	{{ m.credit }}	{{ note_val }}	{% if note_val != "N/A" %} {% if note_val >= 10 %} Validé {% else %} Non Validé {% endif %} {% else %} - {% endif %}
+Moyenne Générale :	{{ "%.2f"|format(moyenne_generale) }} / 20
+Total Crédits Validés :	{{ credits }} / 60
+Résultat : {% if moyenne_generale >= 10 %} ADMIS {% else %} AJOURNÉ {% endif %}
+
+{% endblock %}
