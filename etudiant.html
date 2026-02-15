@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Mon Espace Étudiant{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h2>Bienvenue, {{ current_user.prenom }} {{ current_user.nom }}</h2>
+        <p class="text-muted">Consultez vos notes et votre situation académique.</p>
+        
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Ma Scolarité</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Matricule :</strong> {{ etudiant.matricule }}</li>
+                    <li class="list-group-item"><strong>Classe :</strong> {{ etudiant.classe.nom }}</li>
+                    <li class="list-group-item"><strong>Niveau :</strong> {{ etudiant.classe.filiere.niveau }}</li>
+                </ul>
+                <div class="mt-3">
+                    <a href="{{ url_for('main.bulletin', etudiant_id=etudiant.id) }}" class="btn btn-primary">Voir mon bulletin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">Informations</div>
+            <div class="card-body">
+                <p>Pour toute réclamation, veuillez contacter l'administration ou votre enseignant référent.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
