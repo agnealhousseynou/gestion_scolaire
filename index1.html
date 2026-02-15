@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Gestion des Étudiants{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Liste des Étudiants</h2>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">Ajouter un Étudiant</button>
+</div>
+
+<table class="table table-hover shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Classe</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in etudiants %}
+        <tr>
+            <td>{{ e.matricule }}</td>
+            <td>{{ e.user.nom }}</td>
+            <td>{{ e.user.prenom }}</td>
+            <td>{{ e.classe.nom }}</td>
+            <td>
+                <a href="{{ url_for('main.bulletin', etudiant_id=e.id) }}" class="btn btn-sm btn-info text-white">Bulletin</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Modal d'ajout (Simplifié pour la démo) -->
+<div class="modal fade" id="addStudentModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajouter un étudiant</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Fonctionnalité d'ajout via formulaire à implémenter ou utiliser l'import CSV.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
