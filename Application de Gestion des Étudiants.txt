@@ -1,0 +1,81 @@
+Application de Gestion des Étudiants (EduManager)
+
+Cette application Flask permet de gérer les étudiants, les matières, les notes et de générer des bulletins scolaires.
+
+Fonctionnalités
+
+•
+Multi-rôles : Administrateur, Enseignant, Étudiant.
+
+•
+Gestion globale : Filières (L1, L2, L3), Classes, Matières.
+
+•
+Calcul automatique : Moyennes par matière, moyenne générale pondérée, validation des crédits (60 crédits total).
+
+•
+Consultation : Bulletin de notes détaillé avec statut de validation.
+
+•
+Saisie : Interface dédiée pour les enseignants pour saisir les notes.
+
+Accès par défaut
+
+Rôle
+Identifiant
+Mot de passe
+Administrateur
+admin
+admin123
+Enseignant
+prof1
+prof123
+Étudiant
+etudiant1
+etudiant123
+
+
+
+
+Installation et Lancement
+
+1.
+Installer les dépendances :
+
+Bash
+
+
+pip install flask flask-sqlalchemy flask-migrate flask-login reportlab
+
+
+
+
+
+2.
+Initialiser la base de données et les données de test :
+
+Bash
+
+
+python3 seed_admin.py
+python3 seed_data.py
+python3 seed_notes.py
+
+
+
+
+
+3.
+Lancer l'application :
+
+Bash
+
+
+python3 app.py
+
+
+
+
+
+L'application sera accessible sur http://localhost:5000.
+
