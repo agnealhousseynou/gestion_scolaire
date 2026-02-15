@@ -1,19 +1,86 @@
-{% extends "base.html" %} {% block title %}Bulletin de {{ etudiant.user.nom }}{% endblock %} {% block content %}
-Bulletin de Notes
-Matricule: {{ etudiant.matricule }}
-Nom : {{ etudiant.user.nom }}
+{% extends "base.html" %}
+{% block title %}Bulletin de {{ etudiant.user.nom }}{% endblock %}
+{% block content %}
+<div class="card shadow">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h4>Bulletin de Notes</h4>
+        <span class="badge bg-light text-dark">Matricule: {{ etudiant.matricule }}</span>
+    </div>
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <p><strong>Nom :</strong> {{ etudiant.user.nom }}</p>
+                <p><strong>Prénom :</strong> {{ etudiant.user.prenom }}</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <p><strong>Classe :</strong> {{ etudiant.classe.nom }}</p>
+                <p><strong>Filière :</strong> {{ etudiant.classe.filiere.nom }} ({{ etudiant.classe.filiere.niveau }})</p>
+            </div>
+        </div>
 
-Prénom : {{ etudiant.user.prenom }}
-
-Classe : {{ etudiant.classe.nom }}
-
-Filière : {{ etudiant.classe.filiere.nom }} ({{ etudiant.classe.filiere.niveau }})
-
-{% for m in matieres %} {% set note_val = "N/A" %} {% set valid = False %} {% for n in notes %} {% if n.matiere_id == m.id %} {% set note_val = n.valeur %} {% if n.valeur >= 10 %} {% set valid = True %} {% endif %} {% endif %} {% endfor %} {% endfor %}
-Matière	Coefficient	Crédits	Note / 20	Statut
-{{ m.nom }}	{{ m.coefficient }}	{{ m.credit }}	{{ note_val }}	{% if note_val != "N/A" %} {% if note_val >= 10 %} Validé {% else %} Non Validé {% endif %} {% else %} - {% endif %}
-Moyenne Générale :	{{ "%.2f"|format(moyenne_generale) }} / 20
-Total Crédits Validés :	{{ credits }} / 60
-Résultat : {% if moyenne_generale >= 10 %} ADMIS {% else %} AJOURNÉ {% endif %}
-
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th>Matière</th>
+                    <th>Coefficient</th>
+                    <th>Crédits</th>
+                    <th>Note / 20</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in matieres %}
+                {% set note_val = "N/A" %}
+                {% set valid = False %}
+                {% for n in notes %}
+                    {% if n.matiere_id == m.id %}
+                        {% set note_val = n.valeur %}
+                        {% if n.valeur >= 10 %}
+                            {% set valid = True %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <tr>
+                    <td>{{ m.nom }}</td>
+                    <td>{{ m.coefficient }}</td>
+                    <td>{{ m.credit }}</td>
+                    <td>{{ note_val }}</td>
+                    <td>
+                        {% if note_val != "N/A" %}
+                            {% if note_val >= 10 %}
+                            <span class="text-success fw-bold">Validé</span>
+                            {% else %}
+                            <span class="text-danger fw-bold">Non Validé</span>
+                            {% endif %}
+                        {% else %}
+                            <span class="text-muted">-</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot class="table-light">
+                <tr>
+                    <th colspan="3" class="text-end">Moyenne Générale :</th>
+                    <th colspan="2" class="fs-5">{{ "%.2f"|format(moyenne_generale) }} / 20</th>
+                </tr>
+                <tr>
+                    <th colspan="3" class="text-end">Total Crédits Validés :</th>
+                    <th colspan="2" class="fs-5 text-primary">{{ credits }} / 60</th>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <div class="mt-4 text-center">
+            <p class="fw-bold">
+                Résultat : 
+                {% if moyenne_generale >= 10 %}
+                <span class="badge bg-success p-2">ADMIS</span>
+                {% else %}
+                <span class="badge bg-danger p-2">AJOURNÉ</span>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
